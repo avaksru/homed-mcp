@@ -227,11 +227,12 @@ jobs:
           # Переименовываем бинарник перед упаковкой
           mv "${BINARY_ORIG}" "${BINARY_TARGET}"
           
-          # Создаём tar.gz архив с бинарником
-          tar czf "${BINARY_ORIG}.tar.gz" "${BINARY_TARGET}"
+          # Создаём tar.gz архив с бинарником и конфигурацией
+          tar czf "${BINARY_ORIG}.tar.gz" "${BINARY_TARGET}" config.example.json
 
           echo "::group::Archive info"
           ls -lh "${BINARY_ORIG}.tar.gz"
+          tar tzf "${BINARY_ORIG}.tar.gz"
           echo "::endgroup::"
 
       - name: Upload artifact
