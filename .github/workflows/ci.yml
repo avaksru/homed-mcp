@@ -1,0 +1,397 @@
+# =============================================================================
+# CI - Build binaries for all platforms
+# =============================================================================
+# Workflow для сборки homed-mcp под все поддерживаемые архитектуры.
+# Поддерживает:
+#   - Автоматическую сборку при push/PR
+#   - Ручной запуск с выбором архитектуры
+#   - Создание GitHub Release с бинарниками и SHA256-суммами
+# =============================================================================
+
+name: CI - Build binaries for all platforms
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - 'release/*'
+    tags:
+      - 'v*'
+
+  pull_request:
+    branches:
+      - main
+      - master
+
+  workflow_dispatch:
+    inputs:
+      architectures:
+        description: 'Target architecture(s)'
+        required: true
+        type: choice
+        options:
+          - all
+          - amd64
+          - arm
+          - arm64
+          - riscv64
+          - mips
+          - mips64
+          - ppc64le
+          - s390x
+        default: all
+
+      upload_artifacts:
+        description: 'Upload build artifacts'
+        required: false
+        type: boolean
+        default: true
+
+      release_tag:
+        description: 'Release tag (e.g., v1.0.0). Leave empty to skip release creation.'
+        required: false
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+
+# =============================================================================
+# Глобальные переменные
+# =============================================================================
+env:
+  GO_VERSION: '1.25'
+  BINARY_NAME: homed-mcp
+
+# =============================================================================
+# Матрица поддерживаемых платформ
+# =============================================================================
+# Каждая платформа описана как JSON-объект с goos, goarch и опционально goarm.
+# Артефакт именуется: homed-mcp-{goos}-{goarch}[v{goarm}]
+# =============================================================================
+
+jobs:
+  # ===========================================================================
+  # Job: Prepare Matrix
+  # ===========================================================================
+  # Определяет, для каких платформ собирать, на основе входных параметров
+  # или значений по умолчанию для push/PR.
+  # ===========================================================================
+  prepare:
+    name: Prepare build matrix
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+      should_upload: ${{ steps.set-flags.outputs.should_upload }}
+      should_release: ${{ steps.set-flags.outputs.should_release }}
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine version
+        id: version
+        run: |
+          # Получаем версию из git-тега или формируем dev-версию
+          if git describe --tags --exact-match HEAD 2>/dev/null; then
+            VERSION=$(git describe --tags --exact-match HEAD)
+          else
+            VERSION=$(git describe --tags --always --dirty 2>/dev/null || echo "dev-$(git rev-parse --short HEAD)")
+          fi
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "::notice::Build version: ${VERSION}"
+
+      - name: Set build flags
+        id: set-flags
+        run: |
+          # Определяем, нужно ли загружать артефакты и создавать релиз
+          EVENT="${{ github.event_name }}"
+
+          if [ "$EVENT" = "workflow_dispatch" ]; then
+            echo "should_upload=${{ inputs.upload_artifacts }}" >> "$GITHUB_OUTPUT"
+
+            if [ -n "${{ inputs.release_tag }}" ]; then
+              echo "should_release=true" >> "$GITHUB_OUTPUT"
+            else
+              echo "should_release=false" >> "$GITHUB_OUTPUT"
+            fi
+          elif [ "$EVENT" = "push" ]; then
+            echo "should_upload=true" >> "$GITHUB_OUTPUT"
+            # Релиз создается только по тегу
+            if [[ "${{ github.ref }}" == refs/tags/v* ]]; then
+              echo "should_release=true" >> "$GITHUB_OUTPUT"
+            else
+              echo "should_release=false" >> "$GITHUB_OUTPUT"
+            fi
+          else
+            # pull_request — не загружаем артефакты
+            echo "should_upload=false" >> "$GITHUB_OUTPUT"
+            echo "should_release=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set build matrix
+        id: set-matrix
+        run: |
+          # Полная матрица всех поддерживаемых платформ
+          ALL_PLATFORMS='[
+            {"goos":"linux","goarch":"amd64","artifact_suffix":"linux-amd64"},
+            {"goos":"linux","goarch":"arm","goarm":"7","artifact_suffix":"linux-armv7"},
+            {"goos":"linux","goarch":"arm64","artifact_suffix":"linux-arm64"},
+            {"goos":"linux","goarch":"riscv64","artifact_suffix":"linux-riscv64"},
+            {"goos":"linux","goarch":"mips","artifact_suffix":"linux-mips"},
+            {"goos":"linux","goarch":"mips64","artifact_suffix":"linux-mips64"},
+            {"goos":"linux","goarch":"ppc64le","artifact_suffix":"linux-ppc64le"},
+            {"goos":"linux","goarch":"s390x","artifact_suffix":"linux-s390x"}
+          ]'
+
+          ARCH="${{ inputs.architectures || 'all' }}"
+
+          if [ "$ARCH" = "all" ]; then
+            MATRIX=$(echo "$ALL_PLATFORMS" | jq -c '{"include": .}')
+          else
+            # Фильтруем только выбранную архитектуру
+            MATRIX=$(echo "$ALL_PLATFORMS" | jq -c --arg arch "$ARCH" '{"include": [.[] | select(.goarch == $arch)]}')
+          fi
+
+          echo "matrix=${MATRIX}" >> "$GITHUB_OUTPUT"
+          echo "::notice::Build matrix: ${MATRIX}"
+
+  # ===========================================================================
+  # Job: Build
+  # ===========================================================================
+  # Сборка бинарников для каждой платформы из матрицы.
+  # ===========================================================================
+  build:
+    name: Build ${{ matrix.goos }}/${{ matrix.goarch }}${{ matrix.goarm && format('v{0}', matrix.goarm) || '' }}
+    needs: prepare
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+          cache: true
+          cache-dependency-path: go.sum
+
+      - name: Download Go modules
+        run: go mod download
+
+      - name: Build binary
+        env:
+          CGO_ENABLED: '0'
+          GOOS: ${{ matrix.goos }}
+          GOARCH: ${{ matrix.goarch }}
+          GOARM: ${{ matrix.goarm || '' }}
+        run: |
+          VERSION="${{ needs.prepare.outputs.version }}"
+
+          # Формируем имя выходного файла
+          OUTPUT_NAME="${{ env.BINARY_NAME }}-${{ matrix.artifact_suffix }}"
+
+          echo "::group::Build info"
+          echo "  GOOS:       ${GOOS}"
+          echo "  GOARCH:     ${GOARCH}"
+          echo "  GOARM:      ${GOARM:-<not set>}"
+          echo "  Version:    ${VERSION}"
+          echo "  Output:     ${OUTPUT_NAME}"
+          echo "::endgroup::"
+
+          # Сборка основного бинарника
+          go build -trimpath \
+            -ldflags "-s -w -X main.version=${VERSION}" \
+            -o "${OUTPUT_NAME}" \
+            ./cmd/server
+
+          # Выводим информацию о бинарнике
+          echo "::group::Binary info"
+          ls -lh "${OUTPUT_NAME}"
+          file "${OUTPUT_NAME}" || true
+          echo "::endgroup::"
+
+      - name: Compress artifacts
+        run: |
+          cd "${{ github.workspace }}"
+          BINARY_ORIG="${{ env.BINARY_NAME }}-${{ matrix.artifact_suffix }}"
+          BINARY_TARGET="homed-mcp"
+          
+          # Переименовываем бинарник перед упаковкой
+          mv "${BINARY_ORIG}" "${BINARY_TARGET}"
+          
+          # Создаём tar.gz архив с бинарником
+          tar czf "${BINARY_ORIG}.tar.gz" "${BINARY_TARGET}"
+
+          echo "::group::Archive info"
+          ls -lh "${BINARY_ORIG}.tar.gz"
+          echo "::endgroup::"
+
+      - name: Upload artifact
+        if: needs.prepare.outputs.should_upload == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifact-${{ matrix.artifact_suffix }}
+          path: |
+            homed-mcp-${{ matrix.artifact_suffix }}.tar.gz
+          retention-days: 30
+
+  # ===========================================================================
+  # Job: Create Release
+  # ===========================================================================
+  # Сбор всех артефактов и создание GitHub Release.
+  # Срабатывает при:
+  #   - workflow_dispatch с заполненным release_tag
+  #   - push тега v*
+  # ===========================================================================
+  release:
+    name: Create Release
+    needs: [prepare, build]
+    if: needs.prepare.outputs.should_release == 'true'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine release tag
+        id: release-info
+        run: |
+          if [ -n "${{ inputs.release_tag }}" ]; then
+            TAG="${{ inputs.release_tag }}"
+          else
+            TAG="${GITHUB_REF#refs/tags/}"
+          fi
+
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          echo "::notice::Release tag: ${TAG}"
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          pattern: artifact-*
+
+      - name: Prepare release files
+        run: |
+          mkdir -p release-files
+
+          # Собираем все tar.gz файлы из артефактов
+          find artifacts -name "*.tar.gz" -exec cp {} release-files/ \;
+
+          echo "::group::Release files"
+          ls -lh release-files/
+          echo "::endgroup::"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.release-info.outputs.tag }}
+          name: "Release ${{ steps.release-info.outputs.tag }}"
+          draft: false
+          prerelease: ${{ contains(steps.release-info.outputs.tag, '-rc') || contains(steps.release-info.outputs.tag, '-beta') || contains(steps.release-info.outputs.tag, '-alpha') }}
+          body: |
+            ## homed-mcp ${{ steps.release-info.outputs.tag }}
+
+            Multi-architecture build for Linux.
+
+            ### Downloads
+
+            | Platform | Architecture |
+            |----------|-------------|
+            | Linux | amd64, armv7, arm64, riscv64, mips, mips64, ppc64le, s390x |
+
+
+            ### Installation
+
+            ```bash
+            # Download and extract (example for linux-amd64)
+            tar xzf homed-mcp-linux-amd64.tar.gz
+            sudo install -m 755 homed-mcp /usr/local/bin/homed-mcp
+            ```
+          files: |
+            release-files/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # ===========================================================================
+  # Job: Nightly Release
+  # ===========================================================================
+  # Автоматический nightly-релиз при пуше в main/master.
+  # ===========================================================================
+  nightly:
+    name: Nightly Release
+    needs: [prepare, build]
+    if: |
+      github.event_name == 'push' &&
+      (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') &&
+      !startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Generate nightly tag
+        id: nightly-info
+        run: |
+          TAG="nightly"
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          echo "::notice::Nightly tag: ${TAG}"
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          pattern: artifact-*
+
+      - name: Prepare release files
+        run: |
+          mkdir -p release-files
+
+          find artifacts -name "*.tar.gz" -exec cp {} release-files/ \;
+
+          echo "::group::Nightly release files"
+          ls -lh release-files/
+          echo "::endgroup::"
+
+      - name: Delete old nightly release
+        uses: dev-drprasad/delete-older-releases@v0.2.1
+        with:
+          keep_latest: 0
+          delete_tag_pattern: nightly*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create nightly release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.nightly-info.outputs.tag }}
+          name: "Nightly ${{ steps.nightly-info.outputs.tag }}"
+          draft: false
+          prerelease: true
+          body: |
+            ## 🌙 Nightly Build — ${{ steps.nightly-info.outputs.tag }}
+
+            This is an automated nightly build from the `main` branch.
+
+            ⚠️ **Warning:** Nightly builds may be unstable. Use release builds for production.
+
+            Built from commit: `${{ github.sha }}`
+
+          files: |
+            release-files/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
