@@ -1,0 +1,301 @@
+2026-06-08 12:21:51.665 info config: loaded config.json
+2026-06-08 12:21:51.667 info config: transport=streamableHttp, mqtt.broker=tcp://localhost:1883, mqtt.prefix=homed
+2026-06-08 12:21:51.671 info config: http.addr=:18082
+2026-06-08 12:21:51.672 info paths: homed-recorder=/opt/homed-recorder/homed-recorder.db
+2026-06-08 12:21:51.674 info paths: homed-web=/opt/homed-web/database.json
+2026-06-08 12:21:51.675 info mqtt: connecting to tcp://localhost:1883 as homed-mcp-1 (prefix=homed)
+2026-06-08 12:21:51.686 info mqtt: connected to tcp://localhost:1883
+2026-06-08 12:21:51.686 debug mqtt: subscribe homed/device/# (qos=1)
+2026-06-08 12:21:51.690 debug mqtt: subscribe homed/expose/# (qos=1)
+2026-06-08 12:21:51.693 debug mqtt: <-- device/custom/alarm (retained) payload={"status":"offline"}
+2026-06-08 12:21:51.694 debug mqtt: <-- device/custom/61226326-10251872 (retained) payload={"status":"offline"}
+2026-06-08 12:21:51.694 debug mqtt: <-- device/custom/Охрана (retained) payload={"status":"online"}
+2026-06-08 12:21:51.694 debug mqtt: <-- device/custom/OpenTherm (retained) payload={"status":"online"}
+2026-06-08 12:21:51.695 debug mqtt: <-- device/matter/25396b6b (retained) payload={"lastSeen":1778770629,"status":"offline"}
+2026-06-08 12:21:51.739 debug mqtt: <-- expose/custom/alarm (retained) payload={"common":{"items":["switch"]}}
+2026-06-08 12:21:51.739 debug mqtt: subscribe homed/service/# (qos=1)
+2026-06-08 12:21:51.742 debug mqtt: <-- expose/custom/61226326-10251872 (retained, 2191 bytes) payload={"common":{"items":["boiler","OTget25","OTget26","OTset1","OTset56","OTget17","isHeatingEnabled","isDHWenabled","isFlameOn","LastFaultType","switch_1","switch_2","switch_3","setTemperature","switch_4","setBoilerMAX","switch_5","switch_6","switch_7","ThermostatPID","ThermostatGIST","BleScan33","BleScan42","DS18B20room"],"options":{"BleScan33":{"title":""},"BleScan42":{"title":""},"DS18B20room":{"class":"temperature","round":1,"state":"measurement","title":"🌡 в помещении","type":"sensor","unit":"......
+2026-06-08 12:21:51.742 debug mqtt: <-- expose/custom/Охрана (retained) payload={"common":{"items":["switch"]}}
+2026-06-08 12:21:51.743 debug mqtt: <-- expose/custom/OpenTherm (retained, 2191 bytes) payload={"common":{"items":["boiler","OTget25","OTget26","OTset1","OTset56","OTget17","isHeatingEnabled","isDHWenabled","isFlameOn","LastFaultType","switch_1","switch_2","switch_3","setTemperature","switch_4","setBoilerMAX","switch_5","switch_6","switch_7","ThermostatPID","ThermostatGIST","BleScan33","BleScan42","DS18B20room"],"options":{"BleScan33":{"title":""},"BleScan42":{"title":""},"DS18B20room":{"class":"temperature","round":1,"state":"measurement","title":"🌡 в помещении","type":"sensor","unit":"......
+2026-06-08 12:21:51.744 debug mqtt: <-- expose/matter/25396b6b (retained) payload={"common":{"items":["light"],"options":{"colorTemperature":{"max":65279,"min":1},"light":["level","colorTemperature"]}}}
+2026-06-08 12:21:51.744 debug mqtt: <-- expose/matter/4f476726 (retained) payload={"common":{"items":["light"],"options":{"colorTemperature":{"max":65279,"min":1},"light":["level","colorTemperature"]}}}
+2026-06-08 12:21:51.748 debug mqtt: subscribe homed/status/# (qos=1)
+2026-06-08 12:21:51.755 debug mqtt: <-- service/automation (retained) payload={"status":"online"}
+2026-06-08 12:21:51.756 debug mqtt: <-- service/cloud (retained) payload={"status":"online"}
+2026-06-08 12:21:51.756 debug mqtt: <-- service/custom (retained) payload={"status":"online"}
+2026-06-08 12:21:51.775 debug mqtt: <-- service/matter (retained) payload={"status":"online"}
+2026-06-08 12:21:51.775 debug mqtt: <-- service/recorder (retained) payload={"status":"online"}
+2026-06-08 12:21:51.776 debug mqtt: <-- service/web (retained) payload={"status":"online"}
+2026-06-08 12:21:51.800 debug mqtt: <-- status/automation (retained) payload={"automations":[],"states":{},"timestamp":1780920682,"version":"2.3.8"}
+2026-06-08 12:21:51.801 debug homedweb: read /opt/homed-web/database.json contents={"adminToken":"0ed13c9d9811d7cca681d8143480db7696f360c0f64f8565f5c5ef9aada50608","dashboards":[{"blocks":[{"height":"normal","interval":"24h","items":[{"endpoint":"custom/61226326-10251872","expose":"isDHWenabled","name":"ГВС"},{"endpoint":"custom/61226326-10251872","expose":"OTget25","name":"Подача"},{"endpoint":"custom/61226326-10251872","expose":"OTget26"}],"name":"котел"},{"height":"normal","interval":"24h","items":[{"endpoint":"custom/alarm","expose":"switch","name":"Свет"}],"name":"Спальня"}],"columnPriority":"equal","name":"Офис"},{"blocks":[{"height":"normal","interval":"24h","items":[{"endpoint":"custom/OpenTherm","expose":"boiler","name":"Котел"},{"endpoint":"custom/OpenTherm","expose":"isHeatingEnabled","name":"Отопление"},{"endpoint":"custom/OpenTherm","expose":"isDHWenabled","name":"ГВС"},{"endpoint":"custom/OpenTherm","expose":"OTget25","name":"🌡подача"},{"endpoint":"custom/OpenTherm","expose":"OTget26","name":"🌡вода"},{"endpoint":"custom/OpenTherm","expose":"isFlameOn","name":"Горелка"},{"endpoint":"custom/OpenTherm","expose":"OTget17","name":"♨️"},{"endpoint":"custom/61226326-10251872","expose":"switch_1","name":"♻️ Отопление"},{"endpoint":"custom/61226326-10251872","expose":"switch_2","name":"🚰 ГВС"},{"endpoint":"custom/OpenTherm","expose":"OTset1","name":"🌡 установка СН"},{"endpoint":"custom/OpenTherm","expose":"OTset56","name":"🌡 установка ГВС"},{"endpoint":"custom/OpenTherm","expose":"LastFaultType","name":"Ошибка котла"},{"endpoint":"custom/61226326-10251872","expose":"switch_3","name":"Телеграм"}],"name":"Котел"}],"columnPriority":"equal","name":"Котел"}],"guestToken":"59e0f077f7a04a9c1eca6151849e6fc0e50ae7173cdbda400ba50d770db759d6","names":{"custom/14705744-45074752/status_2":"🚰ГВС","custom/27755404-43141976/status_15":"Зеркало душ"},"timestamp":1780920763,"version":"2.10.0"}
+2026-06-08 12:21:51.804 info homedweb: loaded /opt/homed-web/database.json (version=2.10.0, dashboards=2, blocks=3, items=17, names=2)
+2026-06-08 12:21:51.812 debug mqtt: <-- status/custom (retained, 6126 bytes) payload={"devices":[{"active":true,"cloud":false,"discovery":false,"exposes":["switch"],"id":"alarm","name":"Охрана","note":"Включаем охрану. Сообщения о движении в телеграм.","real":false},{"active":true,"availabilityPattern":"{{ json.status }}","availabilityTopic":"/demo/61226326-10251872/state","bindings":{"BleScan33":{"inPattern":"{{ json.status }}","inTopic":"/demo/61226326-10251872/BleScan33/status"},"BleScan42":{"inPattern":"{{ json.status }}","inTopic":"/demo/6......
+2026-06-08 12:21:51.813 debug mqtt: <-- status/matter (retained, 2654 bytes) payload={"devices":[{"active":true,"cloud":true,"discovery":true,"endpoints":[{"clusters":[29,31,40,48,49,51,60,62,63,53,42],"endpointId":0},{"clusters":[29,3,4,6,8,768,98],"endpointId":1,"meta":{"colorCapabilities":24,"colorTempMax":65279,"colorTempMin":1}}],"fabricIndex":1,"lastSeen":1778770629,"manufacturerName":"TEST_VENDOR","modelName":"TEST_PRODUCT","name":"matter_25396b6b","networkAddress":"fd43:90be:2a1:1:7bee:4ea0:8c9d:ef21","nodeId":"25396b6b","productId":32768,"resumptionID":"a3c5423cd542fc3ce239c2ba4cb8......
+2026-06-08 12:21:51.816 debug mqtt: <-- status/recorder (retained, 4933 bytes) payload={"items":[{"debounce":900,"endpoint":"custom/12175383-1458415","property":"powerBanya","threshold":5},{"debounce":900,"endpoint":"custom/12175383-1458415","property":"voltageBanya","threshold":5},{"debounce":0,"endpoint":"custom/14705744-45074752","property":"DS18B20outside","threshold":0},{"debounce":0,"endpoint":"custom/14705744-45074752","property":"DS18B20room","threshold":0},{"debounce":0,"endpoint":"custom/14705744-45074752","property":"OTget17","threshold":0},{"debounce":0,"endpoint":"custom/14705744......
+2026-06-08 12:21:51.817 debug mqtt: <-- status/web (retained, 1836 bytes) payload={"dashboards":[{"blocks":[{"height":"normal","interval":"24h","items":[{"endpoint":"custom/61226326-10251872","expose":"isDHWenabled","name":"ГВС"},{"endpoint":"custom/61226326-10251872","expose":"OTget25","name":"Подача"},{"endpoint":"custom/61226326-10251872","expose":"OTget26"}],"name":"котел"},{"height":"normal","interval":"24h","items":[{"endpoint":"custom/alarm","expose":"switch","name":"Свет"}],"name":"Спальня"}],"columnPriority":"equal","name":"Офис"},{"blocks":[{"height......
+2026-06-08 12:21:51.823 info homed-web: loaded user-defined names from /opt/homed-web/database.json
+2026-06-08 12:21:51.824 info recorder: opening /opt/homed-recorder/homed-recorder.db in read-only mode
+2026-06-08 12:21:57.008 info recorder: loaded /opt/homed-recorder/homed-recorder.db (items=54, data=54, hour=471992)
+2026-06-08 12:21:57.008 info recorder: data range: 2024-11-27T15:14:25Z .. 2026-05-29T08:11:12Z (54 rows)
+2026-06-08 12:21:57.009 info recorder: hour range: 2024-06-18T12:00:00Z .. 2026-06-08T12:00:00Z (471992 rows)
+2026-06-08 12:21:57.011 debug recorder: item id=5 endpoint=zigbee/00:15:8d:00:07:74:ec:31 property=occupancy debounce=0 threshold=0
+2026-06-08 12:21:57.011 debug recorder: item id=34 endpoint=zigbee/00:15:8d:00:06:f7:ee:85 property=temperature debounce=0 threshold=0
+2026-06-08 12:21:57.012 debug recorder: item id=35 endpoint=zigbee/00:15:8d:00:06:f8:58:01 property=temperature debounce=0 threshold=0
+2026-06-08 12:21:57.012 debug recorder: item id=37 endpoint=custom/termRange property=press debounce=0 threshold=0
+2026-06-08 12:21:57.013 debug recorder: item id=39 endpoint=custom/12175383-1458415 property=voltageBanya debounce=900 threshold=5
+2026-06-08 12:21:57.013 debug recorder: item id=40 endpoint=custom/12175383-1458415 property=powerBanya debounce=900 threshold=5
+2026-06-08 12:21:57.013 debug recorder: item id=42 endpoint=custom/17:75:bd:52:cc:1d property=temperature debounce=0 threshold=0
+2026-06-08 12:21:57.014 debug recorder: item id=43 endpoint=custom/a4:c1:38:3b:4f:9a property=temp debounce=900 threshold=0.3
+2026-06-08 12:21:57.014 debug recorder: item id=44 endpoint=custom/a4:c1:38:aa:31:fa property=temp debounce=0 threshold=0
+2026-06-08 12:21:57.014 debug recorder: item id=45 endpoint=custom/a4:c1:38:c0:ec:8a property=temp debounce=0 threshold=0
+2026-06-08 12:21:57.015 debug recorder: item id=46 endpoint=custom/a4:c1:38:d6:02:09 property=temp debounce=0 threshold=0
+2026-06-08 12:21:57.015 debug recorder: item id=47 endpoint=custom/a4:c1:38:d6:02:09 property=humidity debounce=0 threshold=0
+2026-06-08 12:21:57.015 debug recorder: item id=48 endpoint=custom/17:75:bd:52:cc:1d property=battery debounce=0 threshold=0
+2026-06-08 12:21:57.015 debug recorder: item id=49 endpoint=custom/a4:c1:38:d6:02:09 property=battery debounce=0 threshold=0
+2026-06-08 12:21:57.016 debug recorder: item id=50 endpoint=custom/a4:c1:38:aa:31:fa property=battery debounce=0 threshold=0
+2026-06-08 12:21:57.016 debug recorder: item id=51 endpoint=custom/a4:c1:38:3b:4f:9a property=battery debounce=0 threshold=0
+2026-06-08 12:21:57.017 debug recorder: item id=52 endpoint=custom/a4:c1:38:c0:ec:8a property=battery debounce=0 threshold=0
+2026-06-08 12:21:57.017 debug recorder: item id=54 endpoint=zigbee/00:15:8d:00:06:f8:58:01 property=battery debounce=0 threshold=0
+2026-06-08 12:21:57.017 debug recorder: item id=55 endpoint=zigbee/00:15:8d:00:06:f7:ee:85 property=battery debounce=0 threshold=0
+2026-06-08 12:21:57.018 debug recorder: item id=56 endpoint=custom/590688-1458392 property=powerDom debounce=900 threshold=5
+2026-06-08 12:21:57.018 debug recorder: item id=63 endpoint=custom/590688-1458392 property=voltageDom debounce=900 threshold=5
+2026-06-08 12:21:57.019 debug recorder: item id=70 endpoint=custom/590688-1458392 property=muveLd2410 debounce=0 threshold=0
+2026-06-08 12:21:57.019 debug recorder: item id=87 endpoint=custom/BoilerINFO property=FlameDuration debounce=0 threshold=0
+2026-06-08 12:21:57.019 debug recorder: item id=89 endpoint=custom/BoilerINFO property=FlameCount debounce=0 threshold=0
+2026-06-08 12:21:57.019 debug recorder: item id=91 endpoint=custom/BoilerINFO property=flameStartsCH debounce=0 threshold=0
+2026-06-08 12:21:57.020 debug recorder: item id=92 endpoint=zigbee/8c:f6:81:ff:fe:51:6d:46 property=battery debounce=0 threshold=0
+2026-06-08 12:21:57.020 debug recorder: item id=95 endpoint=custom/14705744-45074752 property=DS18B20room debounce=0 threshold=0
+2026-06-08 12:21:57.021 debug recorder: item id=97 endpoint=custom/14705744-45074752 property=OTget17 debounce=0 threshold=0
+2026-06-08 12:21:57.021 debug recorder: item id=99 endpoint=custom/14705744-45074752 property=OTget26 debounce=0 threshold=0
+2026-06-08 12:21:57.021 debug recorder: item id=100 endpoint=custom/14705744-45074752 property=OTset1 debounce=0 threshold=0
+2026-06-08 12:21:57.021 debug recorder: item id=101 endpoint=custom/14705744-45074752 property=DS18B20outside debounce=0 threshold=0
+2026-06-08 12:21:57.022 debug recorder: item id=103 endpoint=custom/termRange property=PowerCount debounce=0 threshold=0
+2026-06-08 12:21:57.022 debug recorder: item id=104 endpoint=zigbee/08:dd:eb:ff:fe:4c:38:ef property=power_1 debounce=60 threshold=10
+2026-06-08 12:21:57.022 debug recorder: item id=105 endpoint=zigbee/08:dd:eb:ff:fe:4c:38:ef property=energy debounce=0 threshold=0
+2026-06-08 12:21:57.023 debug recorder: item id=106 endpoint=zigbee/08:dd:eb:ff:fe:4c:38:ef property=producedEnergy debounce=0 threshold=0
+2026-06-08 12:21:57.023 debug recorder: item id=107 endpoint=zigbee/08:dd:eb:ff:fe:4c:38:ef property=powerFactor debounce=60 threshold=0.1
+2026-06-08 12:21:57.023 debug recorder: item id=108 endpoint=zigbee/08:dd:eb:ff:fe:4c:38:ef property=current_1 debounce=60 threshold=0.1
+2026-06-08 12:21:57.024 debug recorder: item id=110 endpoint=custom/33732973-65156348 property=temp debounce=0 threshold=0
+2026-06-08 12:21:57.024 debug recorder: item id=112 endpoint=custom/17327555-75426812 property=pressure debounce=0 threshold=0
+2026-06-08 12:21:57.024 debug recorder: item id=113 endpoint=custom/17327555-75426812 property=jhmpRP debounce=0 threshold=0
+2026-06-08 12:21:57.025 debug recorder: item id=114 endpoint=custom/17327555-75426812 property=jhmtRP debounce=0 threshold=0
+2026-06-08 12:21:57.025 debug recorder: item id=115 endpoint=custom/14705744-45074752 property=isFlameOn debounce=0 threshold=0
+2026-06-08 12:21:57.026 debug recorder: item id=116 endpoint=custom/590688-1458392 property=energiLd2410 debounce=0 threshold=0
+2026-06-08 12:21:57.026 debug recorder: item id=117 endpoint=custom/590688-1458392 property=distansLd2410 debounce=0 threshold=0
+2026-06-08 12:21:57.027 debug recorder: item id=119 endpoint=custom/14705744-45074752 property=bleBedroom debounce=0 threshold=0
+2026-06-08 12:21:57.027 debug recorder: item id=121 endpoint=custom/14705744-45074752 property=OTget25 debounce=0 threshold=0
+2026-06-08 12:21:57.028 debug recorder: item id=131 endpoint=custom/17327555-75426812 property=status_2 debounce=0 threshold=0
+2026-06-08 12:21:57.028 debug recorder: item id=132 endpoint=custom/14705744-45074752 property=isHeatingEnabled debounce=0 threshold=0
+2026-06-08 12:21:57.029 debug recorder: item id=133 endpoint=custom/14705744-45074752 property=isDHWenabled debounce=0 threshold=0
+2026-06-08 12:21:57.029 debug recorder: item id=134 endpoint=custom/14705744-45074752 property=status_1 debounce=0 threshold=0
+2026-06-08 12:21:57.029 debug recorder: item id=137 endpoint=custom/a4:c1:38:27:d1:8d property=battery debounce=0 threshold=0
+2026-06-08 12:21:57.030 debug recorder: item id=138 endpoint=custom/a4:c1:38:3b:4f:9a property=temperature debounce=120 threshold=0.5
+2026-06-08 12:21:57.030 debug recorder: item id=139 endpoint=custom/a4:c1:38:27:d1:8d property=temperature debounce=0 threshold=0
+2026-06-08 12:21:57.030 debug recorder: item id=140 endpoint=custom/a4:c1:38:e9:39:b3 property=battery debounce=0 threshold=0
+2026-06-08 12:21:57.032 info homed-recorder: loaded historical data from /opt/homed-recorder/homed-recorder.db
+2026-06-08 12:21:57.035 info registered 14 tools: homed_query_recorder, homed_list_devices, homed_list_services, homed_list_exposes, homed_overview, homed_get_status, homed_get_topic, homed_get_request, homed_publish, homed_set_device, homed_subscribe, homed_unsubscribe, homed_get_properties, homed_list_live
+2026-06-08 12:21:57.038 info serving MCP over Streamable HTTP at :18082/mcp
+2026-06-08 12:23:24.820 info http: POST /mcp from 192.168.0.11:61996 session="8dbb3f17118dd6458983f9f3924c6bc5"
+2026-06-08 12:23:24.821 debug http: headers=map[Accept:[application/json, text/event-stream] Accept-Encoding:[gzip, deflate] Accept-Language:[*] Connection:[keep-alive] Content-Length:[150] Content-Type:[application/json] Mcp-Protocol-Version:[2024-11-05] Mcp-Session-Id:[8dbb3f17118dd6458983f9f3924c6bc5] Sec-Fetch-Mode:[cors] User-Agent:[node]]
+2026-06-08 12:23:24.821 debug http: POST 150 bytes from 192.168.0.11:61996: {"method":"tools/call","params":{"name":"homed_get_properties","arguments":{"device":"61226326-10251872","service":"custom"}},"jsonrpc":"2.0","id":10}
+2026-06-08 12:23:24.822 debug http: dispatch tools/call id=[49 48]
+2026-06-08 12:23:24.823 info mcp: tools/call homed_get_properties args={"device":"61226326-10251872","service":"custom"}
+2026-06-08 12:23:24.824 debug mqtt: subscribe homed/fd/custom/61226326-10251872 (qos=1)
+2026-06-08 12:23:24.829 debug mqtt: publish homed/command/custom (retained=false) payload={"action":"getProperties","device":"61226326-10251872","service":"custom"}
+2026-06-08 12:23:24.840 debug mqtt: WaitFor fd/custom/61226326-10251872 (timeout=5s)
+2026-06-08 12:23:24.840 debug mqtt: subscribe homed/fd/custom/61226326-10251872 (qos=1)
+2026-06-08 12:23:29.840 debug mqtt: WaitFor fd/custom/61226326-10251872: ctx done (context deadline exceeded)
+2026-06-08 12:23:29.841 debug mqtt: unsubscribe homed/fd/custom/61226326-10251872
+2026-06-08 12:23:29.845 info mcp: tools/call homed_get_properties -> error after 5.021187617s: context deadline exceeded
+2026-06-08 12:23:29.846 debug http: responses=1 sse=true
+2026-06-08 12:23:35.135 info http: POST /mcp from 192.168.0.11:62010 session="8dbb3f17118dd6458983f9f3924c6bc5"
+2026-06-08 12:23:35.136 debug http: headers=map[Accept:[application/json, text/event-stream] Accept-Encoding:[gzip, deflate] Accept-Language:[*] Connection:[keep-alive] Content-Length:[133] Content-Type:[application/json] Mcp-Protocol-Version:[2024-11-05] Mcp-Session-Id:[8dbb3f17118dd6458983f9f3924c6bc5] Sec-Fetch-Mode:[cors] User-Agent:[node]]
+2026-06-08 12:23:35.136 debug http: POST 133 bytes from 192.168.0.11:62010: {"method":"tools/call","params":{"name":"homed_get_status","arguments":{"topic":"custom/61226326-10251872"}},"jsonrpc":"2.0","id":11}
+2026-06-08 12:23:35.137 debug http: dispatch tools/call id=[49 49]
+2026-06-08 12:23:35.137 info mcp: tools/call homed_get_status args={"topic":"custom/61226326-10251872"}
+2026-06-08 12:23:35.142 info mcp: tools/call homed_get_status -> ok in 3.70322ms (error=false)
+2026-06-08 12:23:35.143 debug http: responses=1 sse=true
+2026-06-08 12:23:43.721 info http: POST /mcp from 192.168.0.11:62015 session="8dbb3f17118dd6458983f9f3924c6bc5"
+2026-06-08 12:23:43.722 debug http: headers=map[Accept:[application/json, text/event-stream] Accept-Encoding:[gzip, deflate] Accept-Language:[*] Connection:[keep-alive] Content-Length:[163] Content-Type:[application/json] Mcp-Protocol-Version:[2024-11-05] Mcp-Session-Id:[8dbb3f17118dd6458983f9f3924c6bc5] Sec-Fetch-Mode:[cors] User-Agent:[node]]
+2026-06-08 12:23:43.722 debug http: POST 163 bytes from 192.168.0.11:62015: {"method":"tools/call","params":{"name":"homed_get_properties","arguments":{"device":"61226326-10251872","service":"custom","timeout":15}},"jsonrpc":"2.0","id":12}
+2026-06-08 12:23:43.723 debug http: dispatch tools/call id=[49 50]
+2026-06-08 12:23:43.723 info mcp: tools/call homed_get_properties args={"device":"61226326-10251872","service":"custom","timeout":15}
+2026-06-08 12:23:43.724 debug mqtt: subscribe homed/fd/custom/61226326-10251872 (qos=1)
+2026-06-08 12:23:43.729 debug mqtt: publish homed/command/custom (retained=false) payload={"action":"getProperties","device":"61226326-10251872","service":"custom"}
+2026-06-08 12:23:43.741 debug mqtt: WaitFor fd/custom/61226326-10251872 (timeout=15s)
+2026-06-08 12:23:43.742 debug mqtt: subscribe homed/fd/custom/61226326-10251872 (qos=1)
+2026-06-08 12:23:58.742 debug mqtt: WaitFor fd/custom/61226326-10251872: ctx done (context deadline exceeded)
+2026-06-08 12:23:58.742 debug mqtt: unsubscribe homed/fd/custom/61226326-10251872
+2026-06-08 12:23:58.745 info mcp: tools/call homed_get_properties -> error after 15.021805383s: context deadline exceeded
+2026-06-08 12:23:58.745 debug http: responses=1 sse=true
+2026-06-08 12:24:04.462 info http: POST /mcp from 192.168.0.11:62039 session="8dbb3f17118dd6458983f9f3924c6bc5"
+2026-06-08 12:24:04.462 debug http: headers=map[Accept:[application/json, text/event-stream] Accept-Encoding:[gzip, deflate] Accept-Language:[*] Connection:[keep-alive] Content-Length:[177] Content-Type:[application/json] Mcp-Protocol-Version:[2024-11-05] Mcp-Session-Id:[8dbb3f17118dd6458983f9f3924c6bc5] Sec-Fetch-Mode:[cors] User-Agent:[node]]
+2026-06-08 12:24:04.462 debug http: POST 177 bytes from 192.168.0.11:62039: {"method":"tools/call","params":{"name":"homed_query_recorder","arguments":{"endpoint":"custom/61226326-10251872","metric":"last","property":"OTget26"}},"jsonrpc":"2.0","id":13}
+2026-06-08 12:24:04.463 debug http: dispatch tools/call id=[49 51]
+2026-06-08 12:24:04.463 info mcp: tools/call homed_query_recorder args={"endpoint":"custom/61226326-10251872","metric":"last","property":"OTget26"}
+2026-06-08 12:24:04.482 info mcp: tools/call homed_query_recorder -> ok in 18.496603ms (error=false)
+2026-06-08 12:24:04.482 debug http: responses=1 sse=true
+2026-06-08 12:24:10.164 info http: POST /mcp from 192.168.0.11:62059 session="8dbb3f17118dd6458983f9f3924c6bc5"
+2026-06-08 12:24:10.165 debug http: headers=map[Accept:[application/json, text/event-stream] Accept-Encoding:[gzip, deflate] Accept-Language:[*] Connection:[keep-alive] Content-Length:[117] Content-Type:[application/json] Mcp-Protocol-Version:[2024-11-05] Mcp-Session-Id:[8dbb3f17118dd6458983f9f3924c6bc5] Sec-Fetch-Mode:[cors] User-Agent:[node]]
+2026-06-08 12:24:10.165 debug http: POST 117 bytes from 192.168.0.11:62059: {"method":"tools/call","params":{"name":"homed_query_recorder","arguments":{"kind":"items"}},"jsonrpc":"2.0","id":14}
+2026-06-08 12:24:10.166 debug http: dispatch tools/call id=[49 52]
+2026-06-08 12:24:10.166 info mcp: tools/call homed_query_recorder args={"kind":"items"}
+2026-06-08 12:24:10.188 info mcp: tools/call homed_query_recorder -> ok in 21.634261ms (error=false)
+2026-06-08 12:24:10.188 debug http: responses=1 sse=true
+2026-06-08 12:24:22.271 info http: POST /mcp from 192.168.0.11:62079 session="8dbb3f17118dd6458983f9f3924c6bc5"
+2026-06-08 12:24:22.272 debug http: headers=map[Accept:[application/json, text/event-stream] Accept-Encoding:[gzip, deflate] Accept-Language:[*] Connection:[keep-alive] Content-Length:[163] Content-Type:[application/json] Mcp-Protocol-Version:[2024-11-05] Mcp-Session-Id:[8dbb3f17118dd6458983f9f3924c6bc5] Sec-Fetch-Mode:[cors] User-Agent:[node]]
+2026-06-08 12:24:22.272 debug http: POST 163 bytes from 192.168.0.11:62079: {"method":"tools/call","params":{"name":"homed_get_properties","arguments":{"device":"14705744-45074752","service":"custom","timeout":15}},"jsonrpc":"2.0","id":15}
+2026-06-08 12:24:22.273 debug http: dispatch tools/call id=[49 53]
+2026-06-08 12:24:22.273 info mcp: tools/call homed_get_properties args={"device":"14705744-45074752","service":"custom","timeout":15}
+2026-06-08 12:24:22.274 debug mqtt: subscribe homed/fd/custom/14705744-45074752 (qos=1)
+2026-06-08 12:24:22.279 debug mqtt: publish homed/command/custom (retained=false) payload={"action":"getProperties","device":"14705744-45074752","service":"custom"}
+2026-06-08 12:24:22.286 debug mqtt: WaitFor fd/custom/14705744-45074752 (timeout=15s)
+2026-06-08 12:24:22.286 debug mqtt: subscribe homed/fd/custom/14705744-45074752 (qos=1)
+2026-06-08 12:24:37.289 debug mqtt: WaitFor fd/custom/14705744-45074752: ctx done (context deadline exceeded)
+2026-06-08 12:24:37.289 debug mqtt: unsubscribe homed/fd/custom/14705744-45074752
+2026-06-08 12:24:37.293 info mcp: tools/call homed_get_properties -> error after 15.0193267s: context deadline exceeded
+2026-06-08 12:24:37.293 debug http: responses=1 sse=true
+2026-06-08 12:24:42.074 info http: POST /mcp from 192.168.0.11:62092 session="8dbb3f17118dd6458983f9f3924c6bc5"
+2026-06-08 12:24:42.074 debug http: headers=map[Accept:[application/json, text/event-stream] Accept-Encoding:[gzip, deflate] Accept-Language:[*] Connection:[keep-alive] Content-Length:[163] Content-Type:[application/json] Mcp-Protocol-Version:[2024-11-05] Mcp-Session-Id:[8dbb3f17118dd6458983f9f3924c6bc5] Sec-Fetch-Mode:[cors] User-Agent:[node]]
+2026-06-08 12:24:42.075 debug http: POST 163 bytes from 192.168.0.11:62092: {"method":"tools/call","params":{"name":"homed_get_properties","arguments":{"device":"14705744-45074752","service":"custom","timeout":30}},"jsonrpc":"2.0","id":16}
+2026-06-08 12:24:42.075 debug http: dispatch tools/call id=[49 54]
+2026-06-08 12:24:42.075 info mcp: tools/call homed_get_properties args={"device":"14705744-45074752","service":"custom","timeout":30}
+2026-06-08 12:24:42.076 debug mqtt: subscribe homed/fd/custom/14705744-45074752 (qos=1)
+2026-06-08 12:24:42.080 debug mqtt: publish homed/command/custom (retained=false) payload={"action":"getProperties","device":"14705744-45074752","service":"custom"}
+2026-06-08 12:24:42.092 debug mqtt: WaitFor fd/custom/14705744-45074752 (timeout=30s)
+2026-06-08 12:24:42.093 debug mqtt: subscribe homed/fd/custom/14705744-45074752 (qos=1)
+2026-06-08 12:25:12.087 info http: POST /mcp from 192.168.0.11:62130 session="8dbb3f17118dd6458983f9f3924c6bc5"
+2026-06-08 12:25:12.089 debug http: headers=map[Accept:[application/json, text/event-stream] Accept-Encoding:[gzip, deflate] Accept-Language:[*] Connection:[keep-alive] Content-Length:[135] Content-Type:[application/json] Mcp-Protocol-Version:[2024-11-05] Mcp-Session-Id:[8dbb3f17118dd6458983f9f3924c6bc5] Sec-Fetch-Mode:[cors] User-Agent:[node]]
+2026-06-08 12:25:12.090 debug http: POST 135 bytes from 192.168.0.11:62130: {"jsonrpc":"2.0","method":"notifications/cancelled","params":{"requestId":16,"reason":"McpError: MCP error -32001: Request timed out"}}
+2026-06-08 12:25:12.092 debug http: dispatch notifications/cancelled id=[]
+2026-06-08 12:25:12.092 info mcp: unknown method "notifications/cancelled"
+2026-06-08 12:25:12.092 debug http: responses=1 sse=true
+2026-06-08 12:25:12.094 debug mqtt: WaitFor fd/custom/14705744-45074752: ctx done (context deadline exceeded)
+2026-06-08 12:25:12.094 debug mqtt: unsubscribe homed/fd/custom/14705744-45074752
+2026-06-08 12:25:12.101 info mcp: tools/call homed_get_properties -> error after 30.025370148s: context deadline exceeded
+2026-06-08 12:25:12.102 debug http: responses=1 sse=true
+2026-06-08 12:25:26.407 info http: POST /mcp from 192.168.0.11:62139 session="8dbb3f17118dd6458983f9f3924c6bc5"
+2026-06-08 12:25:26.408 debug http: headers=map[Accept:[application/json, text/event-stream] Accept-Encoding:[gzip, deflate] Accept-Language:[*] Connection:[keep-alive] Content-Length:[177] Content-Type:[application/json] Mcp-Protocol-Version:[2024-11-05] Mcp-Session-Id:[8dbb3f17118dd6458983f9f3924c6bc5] Sec-Fetch-Mode:[cors] User-Agent:[node]]
+2026-06-08 12:25:26.409 debug http: POST 177 bytes from 192.168.0.11:62139: {"method":"tools/call","params":{"name":"homed_query_recorder","arguments":{"endpoint":"custom/14705744-45074752","metric":"last","property":"OTget17"}},"jsonrpc":"2.0","id":17}
+2026-06-08 12:25:26.410 debug http: dispatch tools/call id=[49 55]
+2026-06-08 12:25:26.411 info mcp: tools/call homed_query_recorder args={"endpoint":"custom/14705744-45074752","metric":"last","property":"OTget17"}
+2026-06-08 12:25:29.165 info mcp: tools/call homed_query_recorder -> ok in 2.753057096s (error=false)
+2026-06-08 12:25:29.165 debug http: responses=1 sse=true
+2026-06-08 12:32:14.000 info http: POST /mcp from 192.168.0.11:62803 session="8dbb3f17118dd6458983f9f3924c6bc5"
+2026-06-08 12:32:14.001 debug http: headers=map[Accept:[application/json, text/event-stream] Accept-Encoding:[gzip, deflate] Accept-Language:[*] Connection:[keep-alive] Content-Length:[155] Content-Type:[application/json] Mcp-Protocol-Version:[2024-11-05] Mcp-Session-Id:[8dbb3f17118dd6458983f9f3924c6bc5] Sec-Fetch-Mode:[cors] User-Agent:[node]]
+2026-06-08 12:32:14.002 debug http: POST 155 bytes from 192.168.0.11:62803: {"method":"tools/call","params":{"name":"homed_get_properties","arguments":{"device":"OpenTherm","service":"custom","timeout":10}},"jsonrpc":"2.0","id":18}
+2026-06-08 12:32:14.003 debug http: dispatch tools/call id=[49 56]
+2026-06-08 12:32:14.003 info mcp: tools/call homed_get_properties args={"device":"OpenTherm","service":"custom","timeout":10}
+2026-06-08 12:32:14.004 debug mqtt: subscribe homed/fd/custom/OpenTherm (qos=1)
+2026-06-08 12:32:14.009 debug mqtt: publish homed/command/custom (retained=false) payload={"action":"getProperties","device":"OpenTherm","service":"custom"}
+2026-06-08 12:32:14.010 debug mqtt: WaitFor fd/custom/OpenTherm (timeout=10s)
+2026-06-08 12:32:14.011 debug mqtt: subscribe homed/fd/custom/OpenTherm (qos=1)
+2026-06-08 12:32:14.059 debug mqtt: WaitFor fd/custom/OpenTherm -> fd/custom/OpenTherm (409 bytes)
+2026-06-08 12:32:14.062 debug mqtt: unsubscribe homed/fd/custom/OpenTherm
+2026-06-08 12:32:14.065 info mcp: tools/call homed_get_properties -> ok in 61.980301ms (error=false)
+2026-06-08 12:32:14.066 debug http: responses=1 sse=true
+2026-06-08 12:47:15.740 info mqtt: disconnecting from tcp://localhost:1883
+2026-06-08 12:47:34.906 info config: loaded config.json
+2026-06-08 12:47:34.906 info config: transport=streamableHttp, mqtt.broker=tcp://localhost:1883, mqtt.prefix=homed
+2026-06-08 12:47:34.907 info config: http.addr=:18082
+2026-06-08 12:47:34.909 info paths: homed-recorder=/opt/homed-recorder/homed-recorder.db
+2026-06-08 12:47:34.910 info paths: homed-web=/opt/homed-web/database.json
+2026-06-08 12:47:34.911 info mqtt: connecting to tcp://localhost:1883 as homed-mcp-1 (prefix=homed)
+2026-06-08 12:47:34.926 info mqtt: connected to tcp://localhost:1883
+2026-06-08 12:47:34.927 debug mqtt: subscribe homed/device/# (qos=1)
+2026-06-08 12:47:34.932 debug mqtt: subscribe homed/expose/# (qos=1)
+2026-06-08 12:47:34.935 debug mqtt: <-- device/custom/alarm (retained) payload={"status":"offline"}
+2026-06-08 12:47:34.936 debug mqtt: <-- device/custom/61226326-10251872 (retained) payload={"status":"offline"}
+2026-06-08 12:47:34.937 debug mqtt: <-- device/custom/Охрана (retained) payload={"status":"online"}
+2026-06-08 12:47:34.937 debug mqtt: <-- device/custom/OpenTherm (retained) payload={"status":"online"}
+2026-06-08 12:47:34.938 debug mqtt: <-- device/matter/25396b6b (retained) payload={"lastSeen":1778770629,"status":"offline"}
+2026-06-08 12:47:34.979 debug mqtt: <-- expose/custom/alarm (retained) payload={"common":{"items":["switch"]}}
+2026-06-08 12:47:34.979 debug mqtt: subscribe homed/service/# (qos=1)
+2026-06-08 12:47:34.983 debug mqtt: <-- expose/custom/61226326-10251872 (retained, 2191 bytes) payload={"common":{"items":["boiler","OTget25","OTget26","OTset1","OTset56","OTget17","isHeatingEnabled","isDHWenabled","isFlameOn","LastFaultType","switch_1","switch_2","switch_3","setTemperature","switch_4","setBoilerMAX","switch_5","switch_6","switch_7","ThermostatPID","ThermostatGIST","BleScan33","BleScan42","DS18B20room"],"options":{"BleScan33":{"title":""},"BleScan42":{"title":""},"DS18B20room":{"class":"temperature","round":1,"state":"measurement","title":"🌡 в помещении","type":"sensor","unit":"......
+2026-06-08 12:47:34.984 debug mqtt: <-- expose/custom/Охрана (retained) payload={"common":{"items":["switch"]}}
+2026-06-08 12:47:34.984 debug mqtt: <-- expose/custom/OpenTherm (retained, 2191 bytes) payload={"common":{"items":["boiler","OTget25","OTget26","OTset1","OTset56","OTget17","isHeatingEnabled","isDHWenabled","isFlameOn","LastFaultType","switch_1","switch_2","switch_3","setTemperature","switch_4","setBoilerMAX","switch_5","switch_6","switch_7","ThermostatPID","ThermostatGIST","BleScan33","BleScan42","DS18B20room"],"options":{"BleScan33":{"title":""},"BleScan42":{"title":""},"DS18B20room":{"class":"temperature","round":1,"state":"measurement","title":"🌡 в помещении","type":"sensor","unit":"......
+2026-06-08 12:47:34.985 debug mqtt: <-- expose/matter/25396b6b (retained) payload={"common":{"items":["light"],"options":{"colorTemperature":{"max":65279,"min":1},"light":["level","colorTemperature"]}}}
+2026-06-08 12:47:34.985 debug mqtt: <-- expose/matter/4f476726 (retained) payload={"common":{"items":["light"],"options":{"colorTemperature":{"max":65279,"min":1},"light":["level","colorTemperature"]}}}
+2026-06-08 12:47:34.986 debug mqtt: subscribe homed/status/# (qos=1)
+2026-06-08 12:47:34.993 debug mqtt: <-- service/automation (retained) payload={"status":"online"}
+2026-06-08 12:47:34.994 debug mqtt: <-- service/cloud (retained) payload={"status":"online"}
+2026-06-08 12:47:34.994 debug mqtt: <-- service/custom (retained) payload={"status":"online"}
+2026-06-08 12:47:34.995 debug mqtt: <-- service/matter (retained) payload={"status":"online"}
+2026-06-08 12:47:34.995 debug mqtt: <-- service/recorder (retained) payload={"status":"online"}
+2026-06-08 12:47:34.996 debug mqtt: <-- service/web (retained) payload={"status":"online"}
+2026-06-08 12:47:35.042 debug mqtt: <-- status/automation (retained) payload={"automations":[],"states":{},"timestamp":1780920682,"version":"2.3.8"}
+2026-06-08 12:47:35.043 debug homedweb: read /opt/homed-web/database.json contents={"adminToken":"0ed13c9d9811d7cca681d8143480db7696f360c0f64f8565f5c5ef9aada50608","dashboards":[{"blocks":[{"height":"normal","interval":"24h","items":[{"endpoint":"custom/61226326-10251872","expose":"isDHWenabled","name":"ГВС"},{"endpoint":"custom/61226326-10251872","expose":"OTget25","name":"Подача"},{"endpoint":"custom/61226326-10251872","expose":"OTget26"}],"name":"котел"},{"height":"normal","interval":"24h","items":[{"endpoint":"custom/alarm","expose":"switch","name":"Свет"}],"name":"Спальня"}],"columnPriority":"equal","name":"Офис"},{"blocks":[{"height":"normal","interval":"24h","items":[{"endpoint":"custom/OpenTherm","expose":"boiler","name":"Котел"},{"endpoint":"custom/OpenTherm","expose":"isHeatingEnabled","name":"Отопление"},{"endpoint":"custom/OpenTherm","expose":"isDHWenabled","name":"ГВС"},{"endpoint":"custom/OpenTherm","expose":"OTget25","name":"🌡подача"},{"endpoint":"custom/OpenTherm","expose":"OTget26","name":"🌡вода"},{"endpoint":"custom/OpenTherm","expose":"isFlameOn","name":"Горелка"},{"endpoint":"custom/OpenTherm","expose":"OTget17","name":"♨️"},{"endpoint":"custom/61226326-10251872","expose":"switch_1","name":"♻️ Отопление"},{"endpoint":"custom/61226326-10251872","expose":"switch_2","name":"🚰 ГВС"},{"endpoint":"custom/OpenTherm","expose":"OTset1","name":"🌡 установка СН"},{"endpoint":"custom/OpenTherm","expose":"OTset56","name":"🌡 установка ГВС"},{"endpoint":"custom/OpenTherm","expose":"LastFaultType","name":"Ошибка котла"},{"endpoint":"custom/61226326-10251872","expose":"switch_3","name":"Телеграм"}],"name":"Котел"}],"columnPriority":"equal","name":"Котел"}],"guestToken":"59e0f077f7a04a9c1eca6151849e6fc0e50ae7173cdbda400ba50d770db759d6","names":{"custom/14705744-45074752/status_2":"🚰ГВС","custom/27755404-43141976/status_15":"Зеркало душ"},"timestamp":1780920763,"version":"2.10.0"}
+2026-06-08 12:47:35.046 info homedweb: loaded /opt/homed-web/database.json (version=2.10.0, dashboards=2, blocks=3, items=17, names=2)
+2026-06-08 12:47:35.054 debug mqtt: <-- status/custom (retained, 6126 bytes) payload={"devices":[{"active":true,"cloud":false,"discovery":false,"exposes":["switch"],"id":"alarm","name":"Охрана","note":"Включаем охрану. Сообщения о движении в телеграм.","real":false},{"active":true,"availabilityPattern":"{{ json.status }}","availabilityTopic":"/demo/61226326-10251872/state","bindings":{"BleScan33":{"inPattern":"{{ json.status }}","inTopic":"/demo/61226326-10251872/BleScan33/status"},"BleScan42":{"inPattern":"{{ json.status }}","inTopic":"/demo/6......
+2026-06-08 12:47:35.055 debug mqtt: <-- status/matter (retained, 2654 bytes) payload={"devices":[{"active":true,"cloud":true,"discovery":true,"endpoints":[{"clusters":[29,31,40,48,49,51,60,62,63,53,42],"endpointId":0},{"clusters":[29,3,4,6,8,768,98],"endpointId":1,"meta":{"colorCapabilities":24,"colorTempMax":65279,"colorTempMin":1}}],"fabricIndex":1,"lastSeen":1778770629,"manufacturerName":"TEST_VENDOR","modelName":"TEST_PRODUCT","name":"matter_25396b6b","networkAddress":"fd43:90be:2a1:1:7bee:4ea0:8c9d:ef21","nodeId":"25396b6b","productId":32768,"resumptionID":"a3c5423cd542fc3ce239c2ba4cb8......
+2026-06-08 12:47:35.060 debug mqtt: <-- status/recorder (retained, 4933 bytes) payload={"items":[{"debounce":900,"endpoint":"custom/12175383-1458415","property":"powerBanya","threshold":5},{"debounce":900,"endpoint":"custom/12175383-1458415","property":"voltageBanya","threshold":5},{"debounce":0,"endpoint":"custom/14705744-45074752","property":"DS18B20outside","threshold":0},{"debounce":0,"endpoint":"custom/14705744-45074752","property":"DS18B20room","threshold":0},{"debounce":0,"endpoint":"custom/14705744-45074752","property":"OTget17","threshold":0},{"debounce":0,"endpoint":"custom/14705744......
+2026-06-08 12:47:35.064 debug mqtt: <-- status/web (retained, 1836 bytes) payload={"dashboards":[{"blocks":[{"height":"normal","interval":"24h","items":[{"endpoint":"custom/61226326-10251872","expose":"isDHWenabled","name":"ГВС"},{"endpoint":"custom/61226326-10251872","expose":"OTget25","name":"Подача"},{"endpoint":"custom/61226326-10251872","expose":"OTget26"}],"name":"котел"},{"height":"normal","interval":"24h","items":[{"endpoint":"custom/alarm","expose":"switch","name":"Свет"}],"name":"Спальня"}],"columnPriority":"equal","name":"Офис"},{"blocks":[{"height......
+2026-06-08 12:47:35.065 info homed-web: loaded user-defined names from /opt/homed-web/database.json
+2026-06-08 12:47:35.065 info recorder: opening /opt/homed-recorder/homed-recorder.db in read-only mode
+2026-06-08 12:47:39.645 info recorder: loaded /opt/homed-recorder/homed-recorder.db (items=54, data=54, hour=471992)
+2026-06-08 12:47:39.645 info recorder: data range: 2024-11-27T15:14:25Z .. 2026-05-29T08:11:12Z (54 rows)
+2026-06-08 12:47:39.646 info recorder: hour range: 2024-06-18T12:00:00Z .. 2026-06-08T12:00:00Z (471992 rows)
+2026-06-08 12:47:39.648 debug recorder: item id=5 endpoint=zigbee/00:15:8d:00:07:74:ec:31 property=occupancy debounce=0 threshold=0
+2026-06-08 12:47:39.649 debug recorder: item id=34 endpoint=zigbee/00:15:8d:00:06:f7:ee:85 property=temperature debounce=0 threshold=0
+2026-06-08 12:47:39.650 debug recorder: item id=35 endpoint=zigbee/00:15:8d:00:06:f8:58:01 property=temperature debounce=0 threshold=0
+2026-06-08 12:47:39.650 debug recorder: item id=37 endpoint=custom/termRange property=press debounce=0 threshold=0
+2026-06-08 12:47:39.650 debug recorder: item id=39 endpoint=custom/12175383-1458415 property=voltageBanya debounce=900 threshold=5
+2026-06-08 12:47:39.651 debug recorder: item id=40 endpoint=custom/12175383-1458415 property=powerBanya debounce=900 threshold=5
+2026-06-08 12:47:39.651 debug recorder: item id=42 endpoint=custom/17:75:bd:52:cc:1d property=temperature debounce=0 threshold=0
+2026-06-08 12:47:39.651 debug recorder: item id=43 endpoint=custom/a4:c1:38:3b:4f:9a property=temp debounce=900 threshold=0.3
+2026-06-08 12:47:39.652 debug recorder: item id=44 endpoint=custom/a4:c1:38:aa:31:fa property=temp debounce=0 threshold=0
+2026-06-08 12:47:39.652 debug recorder: item id=45 endpoint=custom/a4:c1:38:c0:ec:8a property=temp debounce=0 threshold=0
+2026-06-08 12:47:39.652 debug recorder: item id=46 endpoint=custom/a4:c1:38:d6:02:09 property=temp debounce=0 threshold=0
+2026-06-08 12:47:39.653 debug recorder: item id=47 endpoint=custom/a4:c1:38:d6:02:09 property=humidity debounce=0 threshold=0
+2026-06-08 12:47:39.653 debug recorder: item id=48 endpoint=custom/17:75:bd:52:cc:1d property=battery debounce=0 threshold=0
+2026-06-08 12:47:39.653 debug recorder: item id=49 endpoint=custom/a4:c1:38:d6:02:09 property=battery debounce=0 threshold=0
+2026-06-08 12:47:39.653 debug recorder: item id=50 endpoint=custom/a4:c1:38:aa:31:fa property=battery debounce=0 threshold=0
+2026-06-08 12:47:39.654 debug recorder: item id=51 endpoint=custom/a4:c1:38:3b:4f:9a property=battery debounce=0 threshold=0
+2026-06-08 12:47:39.654 debug recorder: item id=52 endpoint=custom/a4:c1:38:c0:ec:8a property=battery debounce=0 threshold=0
+2026-06-08 12:47:39.655 debug recorder: item id=54 endpoint=zigbee/00:15:8d:00:06:f8:58:01 property=battery debounce=0 threshold=0
+2026-06-08 12:47:39.655 debug recorder: item id=55 endpoint=zigbee/00:15:8d:00:06:f7:ee:85 property=battery debounce=0 threshold=0
+2026-06-08 12:47:39.655 debug recorder: item id=56 endpoint=custom/590688-1458392 property=powerDom debounce=900 threshold=5
+2026-06-08 12:47:39.655 debug recorder: item id=63 endpoint=custom/590688-1458392 property=voltageDom debounce=900 threshold=5
+2026-06-08 12:47:39.656 debug recorder: item id=70 endpoint=custom/590688-1458392 property=muveLd2410 debounce=0 threshold=0
+2026-06-08 12:47:39.656 debug recorder: item id=87 endpoint=custom/BoilerINFO property=FlameDuration debounce=0 threshold=0
+2026-06-08 12:47:39.656 debug recorder: item id=89 endpoint=custom/BoilerINFO property=FlameCount debounce=0 threshold=0
+2026-06-08 12:47:39.657 debug recorder: item id=91 endpoint=custom/BoilerINFO property=flameStartsCH debounce=0 threshold=0
+2026-06-08 12:47:39.657 debug recorder: item id=92 endpoint=zigbee/8c:f6:81:ff:fe:51:6d:46 property=battery debounce=0 threshold=0
+2026-06-08 12:47:39.657 debug recorder: item id=95 endpoint=custom/14705744-45074752 property=DS18B20room debounce=0 threshold=0
+2026-06-08 12:47:39.658 debug recorder: item id=97 endpoint=custom/14705744-45074752 property=OTget17 debounce=0 threshold=0
+2026-06-08 12:47:39.658 debug recorder: item id=99 endpoint=custom/14705744-45074752 property=OTget26 debounce=0 threshold=0
+2026-06-08 12:47:39.659 debug recorder: item id=100 endpoint=custom/14705744-45074752 property=OTset1 debounce=0 threshold=0
+2026-06-08 12:47:39.659 debug recorder: item id=101 endpoint=custom/14705744-45074752 property=DS18B20outside debounce=0 threshold=0
+2026-06-08 12:47:39.659 debug recorder: item id=103 endpoint=custom/termRange property=PowerCount debounce=0 threshold=0
+2026-06-08 12:47:39.660 debug recorder: item id=104 endpoint=zigbee/08:dd:eb:ff:fe:4c:38:ef property=power_1 debounce=60 threshold=10
+2026-06-08 12:47:39.660 debug recorder: item id=105 endpoint=zigbee/08:dd:eb:ff:fe:4c:38:ef property=energy debounce=0 threshold=0
+2026-06-08 12:47:39.660 debug recorder: item id=106 endpoint=zigbee/08:dd:eb:ff:fe:4c:38:ef property=producedEnergy debounce=0 threshold=0
+2026-06-08 12:47:39.661 debug recorder: item id=107 endpoint=zigbee/08:dd:eb:ff:fe:4c:38:ef property=powerFactor debounce=60 threshold=0.1
+2026-06-08 12:47:39.661 debug recorder: item id=108 endpoint=zigbee/08:dd:eb:ff:fe:4c:38:ef property=current_1 debounce=60 threshold=0.1
+2026-06-08 12:47:39.661 debug recorder: item id=110 endpoint=custom/33732973-65156348 property=temp debounce=0 threshold=0
+2026-06-08 12:47:39.662 debug recorder: item id=112 endpoint=custom/17327555-75426812 property=pressure debounce=0 threshold=0
+2026-06-08 12:47:39.662 debug recorder: item id=113 endpoint=custom/17327555-75426812 property=jhmpRP debounce=0 threshold=0
+2026-06-08 12:47:39.662 debug recorder: item id=114 endpoint=custom/17327555-75426812 property=jhmtRP debounce=0 threshold=0
+2026-06-08 12:47:39.663 debug recorder: item id=115 endpoint=custom/14705744-45074752 property=isFlameOn debounce=0 threshold=0
+2026-06-08 12:47:39.663 debug recorder: item id=116 endpoint=custom/590688-1458392 property=energiLd2410 debounce=0 threshold=0
+2026-06-08 12:47:39.663 debug recorder: item id=117 endpoint=custom/590688-1458392 property=distansLd2410 debounce=0 threshold=0
+2026-06-08 12:47:39.664 debug recorder: item id=119 endpoint=custom/14705744-45074752 property=bleBedroom debounce=0 threshold=0
+2026-06-08 12:47:39.664 debug recorder: item id=121 endpoint=custom/14705744-45074752 property=OTget25 debounce=0 threshold=0
+2026-06-08 12:47:39.664 debug recorder: item id=131 endpoint=custom/17327555-75426812 property=status_2 debounce=0 threshold=0
+2026-06-08 12:47:39.665 debug recorder: item id=132 endpoint=custom/14705744-45074752 property=isHeatingEnabled debounce=0 threshold=0
+2026-06-08 12:47:39.665 debug recorder: item id=133 endpoint=custom/14705744-45074752 property=isDHWenabled debounce=0 threshold=0
+2026-06-08 12:47:39.665 debug recorder: item id=134 endpoint=custom/14705744-45074752 property=status_1 debounce=0 threshold=0
+2026-06-08 12:47:39.666 debug recorder: item id=137 endpoint=custom/a4:c1:38:27:d1:8d property=battery debounce=0 threshold=0
+2026-06-08 12:47:39.666 debug recorder: item id=138 endpoint=custom/a4:c1:38:3b:4f:9a property=temperature debounce=120 threshold=0.5
+2026-06-08 12:47:39.666 debug recorder: item id=139 endpoint=custom/a4:c1:38:27:d1:8d property=temperature debounce=0 threshold=0
+2026-06-08 12:47:39.667 debug recorder: item id=140 endpoint=custom/a4:c1:38:e9:39:b3 property=battery debounce=0 threshold=0
+2026-06-08 12:47:39.669 info homed-recorder: loaded historical data from /opt/homed-recorder/homed-recorder.db
+2026-06-08 12:47:39.672 info registered 14 tools: homed_query_recorder, homed_list_devices, homed_list_services, homed_list_exposes, homed_overview, homed_get_status, homed_get_topic, homed_get_request, homed_publish, homed_set_device, homed_subscribe, homed_unsubscribe, homed_get_properties, homed_list_live
+2026-06-08 12:47:39.676 info serving MCP over Streamable HTTP at :18082/mcp
+2026-06-08 12:48:35.030 info http: POST /mcp from 192.168.0.11:63825 session="8dbb3f17118dd6458983f9f3924c6bc5"
+2026-06-08 12:48:35.031 debug http: headers=map[Accept:[application/json, text/event-stream] Accept-Encoding:[gzip, deflate] Accept-Language:[*] Connection:[keep-alive] Content-Length:[101] Content-Type:[application/json] Mcp-Protocol-Version:[2024-11-05] Mcp-Session-Id:[8dbb3f17118dd6458983f9f3924c6bc5] Sec-Fetch-Mode:[cors] User-Agent:[node]]
+2026-06-08 12:48:35.032 debug http: POST 101 bytes from 192.168.0.11:63825: {"method":"tools/call","params":{"name":"homed_list_devices","arguments":{}},"jsonrpc":"2.0","id":19}
+2026-06-08 12:48:35.033 debug http: dispatch tools/call id=[49 57]
+2026-06-08 12:48:35.033 info mcp: tools/call homed_list_devices args={}
+2026-06-08 12:48:35.043 info mcp: tools/call homed_list_devices -> ok in 8.506982ms (error=false)
+2026-06-08 12:48:35.044 debug http: responses=1 sse=true

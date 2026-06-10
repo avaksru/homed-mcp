@@ -1,0 +1,21 @@
+{
+  "transport": "streamableHttp",
+  "http": {
+    "addr": ":8082"
+  },
+  "mqtt": {
+    "broker":   "tcp://localhost:1883",
+    "username": "homed",
+    "password": "secret",
+    "prefix":   "homed",
+    "clientId": "homed-mcp-1"
+  },
+  "logging": {
+    "level": "info",
+    "file":  "/var/log/homed-mcp/homed-mcp.log"
+  },
+  "paths": {
+    "homed-web":      "/opt/homed-web/database.json",
+    "homed-recorder": "/opt/homed-recorder/homed-recorder.db"
+  }
+}

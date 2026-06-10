@@ -1,0 +1,133 @@
+[
+  {"id":"custom/10962412-04943936","name":"10962412-04943936","service":"custom","status":"offline","usesNames":true},
+  {"id":"custom/12175383-1458415","name":"12175383-1458415","service":"custom","status":"online","usesNames":true},
+  {"id":"custom/14705744-45074752","name":"14705744-45074752","service":"custom","status":"online","usesNames":true,"usage":[
+    {"block":"","dashboard":"Свет","item":{"endpoint":"custom/14705744-45074752","expose":"DS18B20outside","name":"Улица"}},
+    {"block":"Дача","dashboard":"Графики","item":{"endpoint":"custom/14705744-45074752","name":"Улица","property":"DS18B20outside"}},
+    {"block":"Дача","dashboard":"Графики","item":{"endpoint":"custom/14705744-45074752","name":"Кухня ds18b20 ","property":"DS18B20room"}},
+    {"block":"Климат","dashboard":"Котел","item":{"endpoint":"custom/14705744-45074752","expose":"switch_4","name":"термостат"}},
+    {"block":"Климат","dashboard":"Котел","item":{"endpoint":"custom/14705744-45074752","expose":"setTemperature","name":"🌡 заданная"}},
+    {"block":"Климат","dashboard":"Котел","item":{"endpoint":"custom/14705744-45074752","expose":"DS18B20outside","name":"Улица"}},
+    {"block":"Logimax U072-18","dashboard":"Котел","item":{"endpoint":"custom/14705744-45074752","expose":"switch_1","name":"♻️ Отопление"}},
+    {"block":"Logimax U072-18","dashboard":"Котел","item":{"endpoint":"custom/14705744-45074752","expose":"switch_2","name":"🚰 ГВС"}},
+    {"block":"Logimax U072-18","dashboard":"Котел","item":{"endpoint":"custom/14705744-45074752","expose":"switch_3","name":"Телеграм"}},
+    {"block":"Logimax U072-18","dashboard":"Котел","item":{"endpoint":"custom/14705744-45074752","expose":"uptime"}},
+    {"block":"Графики","dashboard":"Котел","item":{"endpoint":"custom/14705744-45074752","name":"Горелка","property":"isFlameOn"}},
+    {"block":"Графики","dashboard":"Котел","item":{"endpoint":"custom/14705744-45074752","name":"Модуляция","property":"OTget17"}},
+    {"block":"Графики","dashboard":"Котел","item":{"endpoint":"custom/14705744-45074752","name":"CH","property":"OTget25"}}
+  ]},
+  {"id":"custom/17327555-75426812","name":"17327555-75426812","service":"custom","status":"offline","usesNames":true,"usage":[
+    {"block":"Графики","dashboard":"Котел","item":{"endpoint":"custom/17327555-75426812","name":"Давление","property":"jhmpRP"}},
+    {"block":"Графики","dashboard":"Котел","item":{"endpoint":"custom/17327555-75426812","name":"Обратка","property":"jhmtRP"}},
+    {"block":"Водопровод","dashboard":"Вода","item":{"endpoint":"custom/17327555-75426812","expose":"max","name":"MAX"}},
+    {"block":"Водопровод","dashboard":"Вода","item":{"endpoint":"custom/17327555-75426812","expose":"min","name":"MIN"}},
+    {"block":"Водопровод","dashboard":"Вода","item":{"endpoint":"custom/17327555-75426812","expose":"switch_1","name":"AUTO"}},
+    {"block":"Водопровод","dashboard":"Вода","item":{"endpoint":"custom/17327555-75426812","expose":"switch_2","name":"Насос"}},
+    {"block":"Водопровод","dashboard":"Вода","item":{"endpoint":"custom/17327555-75426812","expose":"uptime","name":"Uptime"}},
+    {"block":"Водопровод","dashboard":"Вода","item":{"endpoint":"custom/17327555-75426812","name":"Давление","property":"pressure"}},
+    {"block":"Водопровод","dashboard":"Вода","item":{"endpoint":"custom/17327555-75426812","property":"status_2"}},
+    {"block":"2 часа","dashboard":"Вода","item":{"endpoint":"custom/17327555-75426812","property":"pressure"}}
+  ]},
+  {"id":"custom/20726055-51743208","name":"20726055-51743208","service":"custom","status":"online","usesNames":true},
+  {"id":"custom/26067540-57076820","name":"26067540-57076820","service":"custom","status":"online","usesNames":true,"usage":[
+    {"block":"","dashboard":"Свет","item":{"endpoint":"custom/26067540-57076820","expose":"switch_1","name":"гирлянда"}}
+  ]},
+  {"id":"custom/879292-1458376","name":"879292-1458376","service":"custom","status":"online","usesNames":true},
+  {"id":"custom/BLEscaner","name":"BLEscaner","service":"custom","status":"offline","usesNames":true},
+  {"id":"custom/BoilerINFO","name":"BoilerINFO","service":"custom","status":"online","usesNames":true,"usage":[
+    {"block":"Logimax U072-18","dashboard":"Котел","item":{"endpoint":"custom/BoilerINFO","expose":"FlameCountDayly","name":"Стартов горелки"}},
+    {"block":"Logimax U072-18","dashboard":"Котел","item":{"endpoint":"custom/BoilerINFO","expose":"flameStartsCHDayly","name":"В режиме CH"}},
+    {"block":"Logimax U072-18","dashboard":"Котел","item":{"endpoint":"custom/BoilerINFO","expose":"FlameDurationDaylyMin","name":"Длительность работы"}}
+  ]},
+  {"id":"custom/Device atuo","name":"Device atuo","service":"custom","status":"online","usesNames":true},
+  {"id":"custom/ESP_PZEM_DOM","name":"ESP_PZEM_DOM","service":"custom","status":"online","usesNames":true,"usage":[
+    {"block":"Водопровод","dashboard":"Вода","item":{"endpoint":"custom/590688-1458392","name":"Электричество","property":"powerDom"}},
+    {"block":"","dashboard":"Электр","item":{"endpoint":"custom/590688-1458392","name":"напряжение","property":"voltageDom"}},
+    {"block":"","dashboard":"Электр","item":{"endpoint":"custom/590688-1458392","name":"потребление","property":"powerDom"}}
+  ]},
+  {"id":"custom/LED_veranda","name":"LED_veranda","service":"custom","status":"online","usesNames":true,"usage":[
+    {"block":"","dashboard":"Свет","item":{"endpoint":"custom/92946115-11571004","expose":"switch_2","name":"свет верх"}},
+    {"block":"","dashboard":"Свет","item":{"endpoint":"custom/92946115-11571004","expose":"switch_3","name":"ступеньки"}}
+  ]},
+  {"id":"custom/OTDisplay","name":"OTDisplay","service":"custom","status":"online","usesNames":true},
+  {"id":"custom/OpenTherm","name":"OpenTherm","service":"custom","status":"online","usesNames":true,"usage":[
+    {"block":"Климат","dashboard":"Котел","item":{"endpoint":"custom/OpenTherm","expose":"bleBedroom","name":"🌡 спальня"}},
+    {"block":"Logimax U072-18","dashboard":"Котел","item":{"endpoint":"custom/OpenTherm","expose":"boiler","name":"Котел"}},
+    {"block":"Logimax U072-18","dashboard":"Котел","item":{"endpoint":"custom/OpenTherm","expose":"isHeatingEnabled","name":"Отопление"}},
+    {"block":"Logimax U072-18","dashboard":"Котел","item":{"endpoint":"custom/OpenTherm","expose":"isDHWenabled","name":"ГВС"}},
+    {"block":"Logimax U072-18","dashboard":"Котел","item":{"endpoint":"custom/OpenTherm","expose":"OTget25","name":"🌡подача"}},
+    {"block":"Logimax U072-18","dashboard":"Котел","item":{"endpoint":"custom/OpenTherm","expose":"OTget26","name":"🌡вода"}},
+    {"block":"Logimax U072-18","dashboard":"Котел","item":{"endpoint":"custom/OpenTherm","expose":"isFlameOn","name":"Горелка"}},
+    {"block":"Logimax U072-18","dashboard":"Котел","item":{"endpoint":"custom/OpenTherm","expose":"OTget17","name":"♨️"}},
+    {"block":"Logimax U072-18","dashboard":"Котел","item":{"endpoint":"custom/OpenTherm","expose":"OTset1","name":"🌡 установка СН"}},
+    {"block":"Logimax U072-18","dashboard":"Котел","item":{"endpoint":"custom/OpenTherm","expose":"OTset56","name":"🌡 установка ГВС"}},
+    {"block":"Logimax U072-18","dashboard":"Котел","item":{"endpoint":"custom/OpenTherm","expose":"LastFaultType","name":"Ошибка котла"}}
+  ]},
+  {"id":"custom/PZEM_Banay","name":"PZEM_Banay","service":"custom","status":"online","usesNames":true},
+  {"id":"custom/PressureRelay","name":"PressureRelay","service":"custom","status":"online","usesNames":true,"usage":[
+    {"block":"Графики","dashboard":"Котел","item":{"endpoint":"custom/17327555-75426812","name":"Давление","property":"jhmpRP"}},
+    {"block":"Графики","dashboard":"Котел","item":{"endpoint":"custom/17327555-75426812","name":"Обратка","property":"jhmtRP"}}
+  ]},
+  {"id":"custom/RCswitch","name":"RCswitch","service":"custom","status":"online","usesNames":true},
+  {"id":"custom/Svet","name":"Svet","service":"custom","status":"online","usesNames":true,"usage":[
+    {"block":"","dashboard":"Свет","item":{"endpoint":"custom/27755404-43141976","expose":"switch_13","name":"веранда гирлянда"}},
+    {"block":"","dashboard":"Свет","item":{"endpoint":"custom/27755404-43141976","expose":"switch_10","name":"🔦 споты верх"}},
+    {"block":"","dashboard":"Свет","item":{"endpoint":"custom/27755404-43141976","expose":"switch_1","name":"🔦споты низ"}},
+    {"block":"","dashboard":"Свет","item":{"endpoint":"custom/27755404-43141976","expose":"switch_9","name":"💡люстра"}},
+    {"block":"","dashboard":"Свет","item":{"endpoint":"custom/27755404-43141976","expose":"switch_11","name":"🔦спот Л"}},
+    {"block":"","dashboard":"Свет","item":{"endpoint":"custom/27755404-43141976","expose":"switch_2","name":"🔦спот П"}}
+  ]},
+  {"id":"custom/Veranda","name":"Veranda","service":"custom","status":"online","usesNames":true},
+  {"id":"custom/alarm","name":"alarm","service":"custom","status":"online","usesNames":true,"usage":[
+    {"block":"","dashboard":"Свет","item":{"endpoint":"custom/alarm","expose":"switch","name":"Охрана"}}
+  ]},
+  {"id":"custom/banya","name":"banya","service":"custom","status":"online","usesNames":true},
+  {"id":"custom/banya esp32","name":"banya esp32","service":"custom","status":"online","usesNames":true},
+  {"id":"custom/bleBedroomM","name":"bleBedroomM","service":"custom","status":"online","usesNames":true,"usage":[
+    {"block":"","dashboard":"Свет","item":{"endpoint":"custom/a4:c1:38:3b:4f:9a","expose":"temperature","name":"ДЕТСКАЯ"}},
+    {"block":"Дача","dashboard":"Графики","item":{"endpoint":"custom/a4:c1:38:3b:4f:9a","name":"детская","property":"temperature"}},
+    {"block":"Климат","dashboard":"Котел","item":{"endpoint":"custom/a4:c1:38:3b:4f:9a","expose":"temperature","name":"🌡 детская"}}
+  ]},
+  {"id":"custom/bleHall","name":"bleHall","service":"custom","status":"online","usesNames":true,"usage":[
+    {"block":"","dashboard":"Свет","item":{"endpoint":"custom/a4:c1:38:e9:39:b3","expose":"humidity","name":"💧"}},
+    {"block":"","dashboard":"Свет","item":{"endpoint":"custom/a4:c1:38:e9:39:b3","expose":"temperature","name":"ГОСТИННАЯ"}}
+  ]},
+  {"id":"custom/bleHallOld","name":"bleHallOld","service":"custom","status":"online","usesNames":true},
+  {"id":"custom/bleKitchen","name":"bleKitchen","service":"custom","status":"online","usesNames":true,"usage":[
+    {"block":"","dashboard":"Свет","item":{"endpoint":"custom/17:75:bd:52:cc:1d","expose":"temperature","name":"КУХНЯ"}},
+    {"block":"Дача","dashboard":"Графики","item":{"endpoint":"custom/17:75:bd:52:cc:1d","name":"кухня","property":"temperature"}}
+  ]},
+  {"id":"custom/bleOffice","name":"bleOffice","service":"custom","status":"online","usesNames":true},
+  {"id":"custom/bleShower","name":"bleShower","service":"custom","status":"online","usesNames":true,"usage":[
+    {"block":"","dashboard":"Свет","item":{"endpoint":"custom/a4:c1:38:c0:ec:8a","expose":"temperature","name":"ДУШ"}}
+  ]},
+  {"id":"custom/ble_bedroom","name":"ble_bedroom","service":"custom","status":"online","usesNames":true,"usage":[
+    {"block":"","dashboard":"Свет","item":{"endpoint":"custom/a4:c1:38:27:d1:8d","expose":"temperature","name":"СПАЛЬНЯ"}},
+    {"block":"Дача","dashboard":"Графики","item":{"endpoint":"custom/a4:c1:38:27:d1:8d","name":"спальня","property":"temperature"}},
+    {"block":"Графики","dashboard":"Котел","item":{"endpoint":"custom/a4:c1:38:27:d1:8d","name":"Спальня","property":"temperature"}}
+  ]},
+  {"id":"custom/espPZEM","name":"espPZEM","service":"custom","status":"offline","usesNames":true},
+  {"id":"custom/garland_window","name":"garland_window","service":"custom","status":"online","usesNames":true,"usage":[
+    {"block":"","dashboard":"Свет","item":{"endpoint":"custom/26067540-57076820","expose":"switch_1","name":"гирлянда"}}
+  ]},
+  {"id":"custom/termRange","name":"termRange","service":"custom","status":"online","usesNames":true,"usage":[
+    {"block":"","dashboard":"Свет","item":{"endpoint":"custom/termRange","expose":"press","name":"⚖️"}},
+    {"block":"","dashboard":"Графики","item":{"endpoint":"custom/termRange","name":"давление","property":"press"}},
+    {"block":"","dashboard":"Электр","item":{"endpoint":"custom/termRange","name":"по часам","property":"PowerCount"}}
+  ]},
+  {"id":"zigbee/00:15:8d:00:07:74:ec:31","lastSeen":1780931991,"name":"00:15:8d:00:07:74:ec:31","service":"zigbee","status":"online","usesNames":true,"usage":[
+    {"block":"Дача","dashboard":"Графики","item":{"endpoint":"zigbee/00:15:8d:00:07:74:ec:31","name":"Occupancy","property":"occupancy"}}
+  ]},
+  {"id":"zigbee/08:dd:eb:ff:fe:4c:38:ef","lastSeen":1780933077,"name":"08:dd:eb:ff:fe:4c:38:ef","service":"zigbee","status":"online","usesNames":true,"usage":[
+    {"block":"","dashboard":"Электр","item":{"endpoint":"zigbee/08:dd:eb:ff:fe:4c:38:ef","name":"потребление щит","property":"power_1"}}
+  ]},
+  {"id":"zigbee/8c:f6:81:ff:fe:51:6d:46","lastSeen":1780931047,"name":"8c:f6:81:ff:fe:51:6d:46","service":"zigbee","status":"online","usesNames":true},
+  {"id":"zigbee/Дверь","lastSeen":1780930843,"name":"Дверь","service":"zigbee","status":"online","usesNames":true},
+  {"id":"zigbee/Пулт детская","lastSeen":1780917975,"name":"Пулт детская","service":"zigbee","status":"online","usesNames":true},
+  {"id":"zigbee/Тамбур термометр","lastSeen":1780931126,"name":"Тамбур термометр","service":"zigbee","status":"online","usesNames":true},
+  {"id":"zigbee/Торшер1","lastSeen":1780933016,"name":"Торшер1","service":"zigbee","status":"online","usesNames":true},
+  {"id":"zigbee/Торшер2","lastSeen":1780932863,"name":"Торшер2","service":"zigbee","status":"online","usesNames":true},
+  {"id":"zigbee/коридор присутствие","lastSeen":1780930406,"name":"коридор присутствие","service":"zigbee","status":"online","usesNames":true},
+  {"id":"zigbee/коридор термометр","lastSeen":1780931123,"name":"коридор термометр","service":"zigbee","status":"online","usesNames":true},
+  {"id":"zigbee/шторы","lastSeen":1780932969,"name":"шторы","service":"zigbee","status":"online","usesNames":true}
+]

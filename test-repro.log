@@ -1,0 +1,4 @@
+2026-06-08 17:32:09.675 info config: transport=streamableHttp, mqtt.broker=tcp://127.0.0.1:1883, mqtt.prefix=homed
+2026-06-08 17:32:09.675 info config: http.addr=127.0.0.1:18082
+2026-06-08 17:32:09.676 info mqtt: connecting to tcp://127.0.0.1:1883 as homed-mcp-20260608173209 (prefix=homed)
+2026-06-08 17:32:24.678 info mqtt: connection to tcp://127.0.0.1:1883 timed out
