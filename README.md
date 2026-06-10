@@ -21,6 +21,31 @@
 
 ## Быстрый старт
 
+### Установка
+
+✅ **Автоматическая установка одной командой:**
+
+Для обычного Linux (Debian, Ubuntu и т.д.):
+```bash
+curl -s https://raw.githubusercontent.com/avaksru/homed-mcp/master/install.sh | sudo sh
+```
+
+Для OpenWrt:
+```bash
+curl -s https://raw.githubusercontent.com/avaksru/homed-mcp/master/install.sh | sh
+```
+
+**Скомпилировать из исходников:**
+```bash
+git clone https://github.com/avaksru/homed-mcp.git
+cd homed-mcp
+go build -o homed-mcp ./cmd/server
+```
+
+Или скачать готовый бинарник со [страницы релизов](https://github.com/avaksru/homed-mcp/releases).
+
+---
+
 ### 1. Конфигурация (`config.json`)
 
 ```json
