@@ -1,6 +1,6 @@
 ﻿# HOMEd MCP Server
 
-`homed-mcp` — сервер **Model Context Protocol (MCP)** для управления умным домом HOMEd через AI. Позволяет языковым моделям (Claude, Cline, Continue и др.) видеть устройства, читать состояние, управлять ими и запрашивать исторические данные.
+`homed-mcp` — сервер **Model Context Protocol (MCP)** для управления умным домом HOMEd через AI. Позволяет языковым моделям (Claude, DeepSeek, Copilot, GPTchat, Grok и др.) видеть устройства, читать состояние, управлять ими и запрашивать исторические данные.
 
 ---
 
